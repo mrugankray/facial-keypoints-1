@@ -1,11 +1,17 @@
 ## TODO: define the convolutional neural network architecture
 
 import torch
-from torch.autograd import Variable
+import torch.cuda
+#from torch.autograd import Variable
 import torch.nn as nn
 import torch.nn.functional as F
 # can use the below import should you choose to initialize the weights of your Net
 import torch.nn.init as I
+
+
+
+def gpu(x):
+    return x.cuda() if torch.cuda.is_available() else x
 
 
 class Net(nn.Module):
